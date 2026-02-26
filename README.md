@@ -1,258 +1,177 @@
-# 🐍 Python OOP: Abstract Class & Method Example
-
+# NumPy Program: Column-wise Sorting of a 2D Array
 ## NAME: V.ANISHA
 ## REGISTER NUMBER: 212224040023
 
-## 🎯 AIM
+## 🎯 Aim
+To write a **NumPy** program that sorts the elements in each column of a given 2D array in ascending order.
 
-To create an **abstract class** named `Shape` with an **abstract method** `calculate_area`, and implement this method in two subclasses: `Rectangle` and `Circle`.
+## 🧠 Algorithm
+
+1. **Import NumPy**: Start by importing the NumPy library.
+2. **Get Input**: Accept a 2D NumPy array from the user.
+3. **Sort Column-wise**: Use the `np.sort()` function with `axis=0` to sort each column in ascending order.
+4. **Store Result**: Store the sorted result in a new array.
+5. **Display Output**: Print the original array and the column-wise sorted array.
+
+## 🧾 Program
+```
+import numpy as np
+x=np.array(eval(input()))
+sorted=np.sort(x,axis=1)
+print("Given array ")
+print("",x,"\n")
+print(sorted)
+```
+## Output
+<img width="1046" height="630" alt="Screenshot 2026-02-10 092359" src="https://github.com/user-attachments/assets/b98a6102-7e90-49ca-855d-2480e298f65b" />
+
+
+## Result
+Thus, the program has been executed successfully.
+
+
+# NumPy Program: Find Indices Where Elements in Array x are Greater Than or Equal to Corresponding Elements in Array y
+
+## 🎯 Aim
+To write a Python program using **NumPy** that finds the indices where elements in array `x` are greater than or equal to their corresponding elements in array `y`.
+
+## 🧠 Algorithm
+1. **Import NumPy**: Import the NumPy library.
+2. **Define Arrays**: Define two NumPy arrays, `x` and `y`, with the same shape (i.e., same number of elements).
+3. **Use Boolean Indexing**: 
+   - `x > y` gives a boolean array where elements of `x` are greater than `y`.
+   - `x == y` gives a boolean array where elements of `x` are equal to `y`.
+4. **Find Indices**: Use `np.where()` to get the indices where the conditions `x >= y` are satisfied.
+5. **Print Indices**: Print the indices where the condition holds true.
+
+## 🧾 Program
+```
+import numpy as np
+x=np.array(eval(input()))
+y=np.array(eval(input()))
+great=np.where(x>y)
+equal=np.where(x==y)
+print(great)
+print(equal)
+```
+## Output
+<img width="1399" height="289" alt="Screenshot 2026-02-10 092800" src="https://github.com/user-attachments/assets/251b5e99-e93d-4e4b-98c0-3e18ef3bef4c" />
+
+
+## Result
+Thus, the program has been executed successfully.
+
+
+# NumPy Program: Replace the Second Column in a 2D Array
+
+## 🎯 Aim
+To write a **NumPy** program that deletes the second column from a given 2D array and inserts a new column at the same position.
+
+## 🧠 Algorithm
+1. **Import NumPy**: Start by importing the NumPy library.
+2. **Get Input**: Get a 2D NumPy array and a new column (as another array) from the user.
+3. **Delete Column**: Use `np.delete()` to remove the second column (index 1) from the original array.
+4. **Insert Column**: Use `np.insert()` to insert the new column at the second column's original position.
+5. **Display Result**: Print the updated array with the replaced column.
+
+## 🧾 Program
+```
+import numpy as np
+orig=np.array(eval(input()))
+new=np.array(eval(input()))
+print("Printing Original array")
+print(orig)
+modif=np.delete(orig,1,axis=1)
+print("Array after deleting column 2 on axis 1")
+print(modif)
+result=np.insert(modif,1,new,axis=1)
+print("Array after inserting column 2 on axis 1")
+print(result)
+```
+## Output
+<img width="1262" height="436" alt="Screenshot 2026-02-10 094646" src="https://github.com/user-attachments/assets/45aef7de-cb41-4f08-bcf5-6f425f044c04" />
+
+
+## Result
+Thus, the program has been executed successfully.
+
+
+# Pandas Program: Create and Display a DataFrame with Custom Index Labels
+
+## 🎯 Aim
+
+To create and display a **DataFrame** using the **Pandas** library in Python from a given dictionary, and apply specific index labels to the rows.
 
 ---
 
-## 🧠 ALGORITHM
+## 🧠 Algorithm
 
-1. **Import ABC module**:
-   - Use `from abc import ABC, abstractmethod` to define abstract classes and methods.
-
-2. **Create Abstract Class `Shape`**:
-   - Define an abstract method `calculate_area()` with `@abstractmethod`.
-
-3. **Create Subclass `Rectangle`**:
-   - Set default values for `length` and `breadth`.
-   - Override `calculate_area()` to compute the rectangle area.
-
-4. **Create Subclass `Circle`**:
-   - Set default value for `radius`.
-   - Override `calculate_area()` to compute the circle area.
-
-5. **Create Objects & Call Methods**:
-   - Instantiate `Rectangle` and `Circle`.
-   - Call their `calculate_area()` methods.
+1. **Import Libraries**: Import the required libraries – `pandas` and `numpy`.
+2. **Create Dictionary**: Define a dictionary `exam_data` with keys: `'name'`, `'score'`, `'attempts'`, and `'qualify'`.
+3. **Index Labels**: Create a list of custom index labels called `labels`.
+4. **Create DataFrame**: Use `pd.DataFrame()` to create the DataFrame by passing the dictionary and index labels.
+5. **Display Output**: Display the DataFrame using `print()` or by simply calling the DataFrame variable.
 
 ---
 
 ## 💻 Program
 ```
-from abc import ABC, abstractmethod
-import math
-class Shape(ABC):
-    @abstractmethod
-    def calculate_area(self):
-        pass
-class Rectangle(Shape):
-    def __init__(self, length=1, breadth=1):
-        self.length = length
-        self.breadth = breadth
-
-    def calculate_area(self):
-        return self.length * self.breadth
-class Circle(Shape):
-    def __init__(self, radius=1):
-        self.radius = radius
-
-    def calculate_area(self):
-        return math.pi * self.radius *self radius
-rect = Rectangle(5, 3)
-circle = Circle(4)
-
-print("Area of Rectangle:", rect.calculate_area())
-print("Area of Circle:", circle.calculate_area())
+import pandas as pd 
+import numpy as np 
+exam_data  = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 
+'Kevin', 'Jonas'], 
+'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19], 
+'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1], 
+'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']} 
+labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'] 
+df = pd.DataFrame(exam_data , index=labels) 
+print(df)
 ```
 ## Output
-
-<img width="742" height="165" alt="Screenshot 2026-02-11 110228" src="https://github.com/user-attachments/assets/d22a884e-7e93-4265-b744-585d82ce54cf" />
+<img width="956" height="450" alt="Screenshot 2026-02-10 094836" src="https://github.com/user-attachments/assets/c9397e91-5a2b-4b28-9908-ed7480e77421" />
 
 
 ## Result
-Thus , the program has been executed successfully.
+Thus, the program has been executed successfully.
 
-# 🐍 Python OOP: Encapsulation with Private Members
+
+# 🧪 Pandas Program: Join Two DataFrames Along Rows
 
 ## 🎯 AIM
 
-To implement **Encapsulation** in Python by defining a class `Rectangle` with **private member variables** `__length` and `__breadth`.
+To write a Python program using Pandas to **join two DataFrames along rows** (row-wise concatenation) and assign all data to a new DataFrame.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Define the Class**:
-   - Create a class `Rectangle` with two private attributes: `__length` and `__breadth`.
-
-2. **Initialize Variables**:
-   - Use the `__init__()` constructor to set initial values for `__length` and `__breadth`.
-
-3. **Print Values**:
-   - Display the private variables from within the class to demonstrate access.
-
-4. **Instantiate the Object**:
-   - Create an object of the `Rectangle` class to trigger the constructor.
+1. **Import Libraries**: Import the `pandas` library.
+2. **Create First DataFrame**: Use a dictionary to create `student_data1`.
+3. **Create Second DataFrame**: Use another dictionary to create `student_data2`.
+4. **Concatenate DataFrames**: Use `pd.concat()` with `axis=0` to concatenate both DataFrames row-wise.
+5. **Display Result**: Print the new combined DataFrame.
 
 ---
 
 ## 💻 Program
 ```
-class Rectangle:
-    def __init__(self, length, width):
-        # private variables
-        self.__length = length
-        self.__width = width
-
-    def display(self):
-        # accessing private variables within the class
-        print(self.__length)
-        print(self.__width)
-
-# create object
-rect = Rectangle(5, 3)
-
-# print values within the class
-rect.display()
+import pandas as pd
+a=eval(input())
+b=eval(input())
+df1=pd.DataFrame(a)
+df2=pd.DataFrame(b)
+print("Original DataFrames:")
+print(df1)
+print("-------------------------------------")
+print(df2)
+print()
+mer=pd.concat([df1,df2])
+print("Join the said two dataframes along rows:")
+print(mer)
 ```
 ## Output
-
-<img width="436" height="205" alt="Screenshot 2026-02-11 110403" src="https://github.com/user-attachments/assets/487bfcf6-5867-4754-bfff-f98614fe4390" />
+<img width="1193" height="787" alt="Screenshot 2026-02-10 094928" src="https://github.com/user-attachments/assets/ab54c065-e1ec-4f39-b29e-0cd82c2ed8a7" />
 
 
 ## Result
-Thus , the program has been executed successfully.
-
-# 🐟 Method Overriding-Fish and Shark Class Inheritance in Python
-
-## 🧠 AIM:
-To write a Python program that demonstrates class inheritance by creating a parent class `Fish` with a method `type`, and a child class `Shark` that overrides the `type` method.
-
-## 📋 ALGORITHM:
-
-1. Define the `Fish` class with a method named `type()` that prints `"fish"`.
-2. Define the `Shark` class as a subclass of `Fish`, and override the `type()` method to print `"shark"`.
-3. Create an instance of the `Fish` class named `obj_goldfish`.
-4. Create an instance of the `Shark` class named `obj_hammerhead`.
-5. Use a `for` loop to iterate over both objects.
-6. Within the loop, call the `type()` method using the loop variable.
-7. Output will demonstrate method overriding: printing `"fish"` and `"shark"` accordingly.
-
-## 💻 PROGRAM:
-```
-class Fish:
-    def type(self):
-        print("fish")
-class Shark:
-    def type(self):
-        print("shark")
-obj_goldfish=Fish()
-obj_hammerhead=Shark()
-
-for i in (obj_goldfish,obj_hammerhead):
-    i.type()
-```
-## OUTPUT
-
-<img width="435" height="209" alt="Screenshot 2026-02-11 111622" src="https://github.com/user-attachments/assets/225c3f43-e1c8-409e-80ee-25228f346f27" />
-
-
-## RESULT
-Thus , the program has been executed successfully.
-
-# 🐍 Python OOP: Operator Overloading (Less Than `<`)
-
-## 🎯 AIM
-
-To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
-
----
-
-## 🧠 ALGORITHM
-
-1. **Create Class `A`**:
-   - Define the `__init__()` method to initialize the object with a value `a`.
-
-2. **Overload the `<` Operator**:
-   - Define the `__lt__()` method with logic:
-     - If `self.a < o.a`, return `"ob1 is less than ob2"`
-     - Else, return `"ob2 is less than ob1"`
-
-3. **Create Objects**:
-   - Instantiate two objects `ob1` and `ob2` with values.
-
-4. **Use `<` Operator**:
-   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
-
----
-
-## 💻 Program
-```
-class A:
-    def __init__(self, a):
-        self.a = a
-    def __lt__(self, other):
-        if(self.a<other.a):
-            return "ob1 is less than ob2"
-        else:
-            return "ob2 is less than ob1"
-ob1 = A(20)
-ob2 = A(3)
-print(ob1 < ob2)
-```
-
-## Output
-
-<img width="617" height="179" alt="Screenshot 2026-02-11 111710" src="https://github.com/user-attachments/assets/96fbf066-cb1e-4104-b0e3-dec467fd7ad5" />
-
-
-## Result
-Thus , the program has been executed successfully.
-
-# # 🐍 Python OOP: Polymorphism with Classes
-
-## 🎯 AIM
-
-To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
-
----
-
-## 🧠 ALGORITHM
-
-1. **Create Class `Beans`**:
-   - Define `type()` method that prints `"Vegetable"`.
-   - Define `color()` method that prints `"Green"`.
-
-2. **Create Class `Mango`**:
-   - Define `type()` method that prints `"Fruit"`.
-   - Define `color()` method that prints `"Yellow"`.
-
-3. **Define Generic Function `func(obj)`**:
-   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
-
-4. **Create Objects**:
-   - Instantiate `Beans` and `Mango`.
-   - Pass them to `func()` and execute the program.
-
----
-
-## 💻 Program
-```
-class Beans(): 
-     def type(self): 
-       print("Vegetable") 
-     def color(self):
-       print("Green") 
-class Mango(): 
-     def type(self): 
-       print("Fruit") 
-     def color(self): 
-       print("Yellow")      
-
-obj_beans = Beans() 
-obj_mango = Mango() 
-for i in (obj_beans,obj_mango):
-    i.type()
-    i.color()
-```
-## Output
-
-<img width="439" height="240" alt="Screenshot 2026-02-11 111752" src="https://github.com/user-attachments/assets/3dbbed7c-e8e1-4784-8848-dcd000db4d11" />
-
-
-## Result
-Thus , the program has been executed successfully.
+Thus, the program has been executed successfully.
